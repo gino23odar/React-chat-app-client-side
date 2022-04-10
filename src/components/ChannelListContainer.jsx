@@ -2,7 +2,7 @@ import React from 'react';
 import {ChannelList, useChatContext} from 'stream-chat-react';
 import Cookies from 'universal-cookie';
 
-import {ChannelSearch, TeamChannelList, TeamchannelPreview} from './';
+import {ChannelSearch, TeamChannelList, TeamChannelPreview} from './';
 import ChatIcon from '../assets/chaticon.png';
 import LogoutIcon from '../assets/logouticon.jpg';
 
@@ -38,6 +38,16 @@ const ChannelListContainer = () => {
         <ChannelList filters={{}} 
           channelRenderFilterFn={()=>{}} 
           List={(listProps) =>(<TeamChannelList {...listProps} type='team'/>)}
+          Preview={(previewProps)=>(
+            <TeamChannelPreview {...previewProps} type='team'/>
+          )}
+        />
+        <ChannelList filters={{}} 
+          channelRenderFilterFn={()=>{}} 
+          List={(listProps) =>(<TeamChannelList {...listProps} type='messaging'/>)}
+          Preview={(previewProps)=>(
+            <TeamChannelPreview {...previewProps} type='messaging'/>
+          )}
         />
       </div>
     </>
