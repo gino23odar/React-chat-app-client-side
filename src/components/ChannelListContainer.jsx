@@ -53,8 +53,7 @@ const ChannelListContent = ({isCreating, setIsCreating, setCreateType, setIsEdit
     window.location.reload();
   }
 
-  //this was supposed to filter the channels to show only the ones 
-  //in which the user is, but somehow its working without it
+  //nvm filters to display the teams or DMs you are in are working now
   const filters = {members: {$in: [client.userID]}};
 
   return (
@@ -63,7 +62,7 @@ const ChannelListContent = ({isCreating, setIsCreating, setCreateType, setIsEdit
       <div className='channel-list__list__wrapper'>
         <CompanyHeader/>
         <ChannelSearch/>
-        <ChannelList filters={()=>{}} 
+        <ChannelList filters={filters} 
           channelRenderFilterFn={customChannelTeamFilter} 
           List={(listProps) =>(
             <TeamChannelList 
@@ -85,7 +84,7 @@ const ChannelListContent = ({isCreating, setIsCreating, setCreateType, setIsEdit
             />
           )}
         />
-        <ChannelList filters={()=>{}} 
+        <ChannelList filters={filters} 
           channelRenderFilterFn={customChannelDMsFilter} 
           List={(listProps) =>(
             <TeamChannelList 
