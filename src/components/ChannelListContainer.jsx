@@ -53,7 +53,7 @@ const ChannelListContent = ({isCreating, setIsCreating, setCreateType, setIsEdit
     window.location.reload();
   }
 
-  //nvm filters to display the teams or DMs you are in are working now
+  //filters the channels or DMs the user is not a part of so they dont appear in the channel list
   const filters = {members: {$in: [client.userID]}};
 
   return (
