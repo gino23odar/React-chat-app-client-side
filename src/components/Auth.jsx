@@ -17,6 +17,7 @@ const initialState = {
 
 const Auth = () => {
   const [form, setForm] = useState(initialState);
+  //hook to change between sing up and sign in displays.
   const [isSignup, setIsSignup] = useState(true);
 
   const handleChange=(e)=>{

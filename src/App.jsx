@@ -16,6 +16,7 @@ const authToken = cookies.get('token');
 
 const client = StreamChat.getInstance(apiKey);
 
+//if there is an authentication token fetch from api
 if(authToken){
   client.connectUser({
     id: cookies.get('userId'),
@@ -32,6 +33,7 @@ const App = () => {
   const [isCreating, setIsCreating] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
+  //if there is no authentication token go to Auth.jsx
   if(!authToken) return <Auth/>
 
   return (
